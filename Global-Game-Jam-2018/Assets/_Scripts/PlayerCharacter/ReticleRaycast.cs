@@ -40,10 +40,12 @@ void FixedUpdate()
 		switch (hit.collider.gameObject.tag){
 			case "Terminal":
 				AspectRatio.rectTransform.localScale = AspectRatioOff;
-				// GameManager.instance.LaunchHack();
+				GameManager.instance.LaunchHack();
 				break;
 			case "Poster":
 				AspectRatio.rectTransform.localScale = AspectRatioOff;
+				GameObject.Destroy(currentObj);
+				GameManager.instance.DestroyPoster();
 				// Destroy Poster, tell GameManager so it keeps track of how many Posters you've destroyed
 				break;
 		}

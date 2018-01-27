@@ -16,8 +16,19 @@ public class GameManager : MonoBehaviour {
 	// Pause Canvas
 	public GameObject PauseCanvas;
 
- 	// Variables
-	private bool isPaused; 
+ 	[Header("Game Variables")]
+ 	// Public
+ 	// Hacking-Related
+
+ 	// Poster-Related
+ 	public float PosterCameraShake = 0.5f;
+ 	public int PostersThatExist;
+ 	public int PostersDestroyed;
+
+ 	// Private
+	private bool isPaused;
+
+	/*****Defaults******/
 
 	void Awake() {
 		if (instance == null){instance = this;}
@@ -42,6 +53,21 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}
+
+	/*****Game Functions******/
+
+	public void LaunchHack(){
+		// Code to initiate hacking mini-game
+		DisablePlayerController(true);
+	}
+
+	public void DestroyPoster(){
+		PostersDestroyed++;
+		controller.CameraShake.shakeDuration = PosterCameraShake;
+		// Update UI to show
+	}
+
+	/*****Utility******/
 
 	void pause(){
 		PauseCanvas.SetActive(true);

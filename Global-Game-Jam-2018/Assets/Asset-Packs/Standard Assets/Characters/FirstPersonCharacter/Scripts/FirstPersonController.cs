@@ -18,7 +18,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     	[SerializeField] private AudioClip JetPack_Release;
     	private bool JetpackAudioPlaying;
     	// Custom private
-		private CameraShake CameraShake;
+		public CameraShake CameraShake;
 
 		[Header("Default Unity Variables")]
         [SerializeField] private bool m_IsWalking;
