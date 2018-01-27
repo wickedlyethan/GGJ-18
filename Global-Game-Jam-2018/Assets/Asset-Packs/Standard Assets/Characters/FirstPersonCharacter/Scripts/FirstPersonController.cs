@@ -42,10 +42,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+		private CameraShake CameraShake;
+
         // Use this for initialization
         private void Start()
         {
             m_CharacterController = GetComponent<CharacterController>();
+			CameraShake = GetComponent<CameraShake> ();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
@@ -56,7 +59,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
-
 
         // Update is called once per frame
         private void Update()
@@ -80,9 +82,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_MoveDir.y = 0f;
             }
 
+			/* Ethan's Jetpack Code*/
+
+			if (m_Jumping == true && CrossPlatformInputManager.GetButton("Jump")) {
+				Jetpack ();
+			}
+			if (m_Jumping == true && CrossPlatformInputManager.GetButtonUp("Jump")) {
+				m_GravityMultiplier = 2f;
+				CameraShake.justShake = false;
+			}
+
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
+		private void Jetpack(){
+			//Debug.Log ("Jetpack");
+			m_Jump = false;
+			m_GravityMultiplier = 0.5f;
+			m_CharacterController.Move (Vector3.up * 0.05f);
+			CameraShake.justShake = true;
+			// Jetpack sound
+		}
 
         private void PlayLandingSound()
         {
