@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour {
 	public GameObject thePlayer;
 	private UnityStandardAssets.Characters.FirstPerson.FirstPersonController controller;
 
+	// Pause Canvas
 	public GameObject PauseCanvas;
 
  	// Variables
-
 	private bool isPaused; 
 
 	void Awake() {
@@ -24,9 +24,12 @@ public class GameManager : MonoBehaviour {
 		else if (instance != this){Destroy(gameObject);}
 		DontDestroyOnLoad(gameObject);
 
-		/*Actual Shit*/
+		/*References*/
 		controller = thePlayer.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
 
+		/*Resets*/
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	void Update(){
