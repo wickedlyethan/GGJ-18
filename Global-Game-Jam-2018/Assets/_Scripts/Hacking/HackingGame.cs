@@ -27,6 +27,8 @@ public class HackingGame : MonoBehaviour {
 
 
 	public void CommenceHacking () {
+		successCount = Mathf.Clamp(0, 0, hackingInfo[hackingID].PlayerCommands.Length);
+		chancesLeft = 3;
 		StartCoroutine ("LaunchGame", 0f);
 	}
 	
@@ -45,6 +47,7 @@ public class HackingGame : MonoBehaviour {
 		}
 		if (chancesLeft == 0) {
 			Debug.Log ("Hacking Failed");
+			consoleText.text += ("\n" + "------------------" + "\n" + "HACKING FAILED" + "\n" + "------------------" + "\n");
 			GameManager.instance.Invoke("StopHacking", 1.5f);
 		}
 	}
@@ -78,7 +81,6 @@ public class HackingGame : MonoBehaviour {
 	public IEnumerator LaunchGame (float delay) {
 		yield return new WaitForSeconds (delay);
 		consoleText.text = ("Hacking Game: " + (hackingID + 1));
-		successCount = Mathf.Clamp(successCount, 0, hackingInfo[hackingID].PlayerCommands.Length);
 		consoleInput.Select ();
 		consoleInput.ActivateInputField ();
 		tempLine = hackingInfo [hackingID].PlayerCommands [successCount];
