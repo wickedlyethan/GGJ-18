@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour {
 
+	public Manager manager;
+
 	public float speed; 
 
 	private Rigidbody rb;
@@ -16,11 +18,18 @@ public class BallController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		float moveHorizontal = Input.GetAxisRaw ("Horizontal");
+		float moveVertical = Input.GetAxisRaw ("Vertical");
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
 		rb.AddForce (movement * speed);
+
+	}
+	void OnTriggerEnter (Collider collider) {
+
+		if (collider.gameObject.CompareTag("Pickup")) {
+			collider.gameObject.SetActive (false);
+		}
 	}
 }
