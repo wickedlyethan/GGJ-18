@@ -1,94 +1,18 @@
 fileFormatVersion: 2
-guid: cdb6be7d0562a60448d9154e7ecb14e8
-timeCreated: 1517032995
+guid: f764b18b5c8724747893deac119cadef
+timeCreated: 1517075861
 licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: backpipe
-    100002: building1
-    100004: building2
-    100006: building4
-    100008: //RootNode
-    100010: pCube1
-    100012: pole
-    100014: pole1
-    100016: sidepipe
-    100018: Skyscraper1
-    100020: topthing
-    100022: transform1
-    100024: transform2
-    100026: transform3
-    100028: transform4
-    100030: transform5
-    100032: transform6
-    100034: transform7
-    100036: building5
-    100038: building_1
-    100040: building_2
-    100042: building_3
-    100044: building_4
-    100046: light
-    100048: platform
-    100050: transform10
-    100052: transform8
-    100054: transform9
-    100056: building_5
-    400000: backpipe
-    400002: building1
-    400004: building2
-    400006: building4
-    400008: //RootNode
-    400010: pCube1
-    400012: pole
-    400014: pole1
-    400016: sidepipe
-    400018: Skyscraper1
-    400020: topthing
-    400022: transform1
-    400024: transform2
-    400026: transform3
-    400028: transform4
-    400030: transform5
-    400032: transform6
-    400034: transform7
-    400036: building5
-    400038: building_1
-    400040: building_2
-    400042: building_3
-    400044: building_4
-    400046: light
-    400048: platform
-    400050: transform10
-    400052: transform8
-    400054: transform9
-    400056: building_5
-    2100000: lambert1
-    2300000: building1
-    2300002: building4
-    2300004: pCube1
-    2300006: building_1
-    2300008: building_2
-    2300010: building_3
-    2300012: building_4
-    2300014: building_5
-    3300000: building1
-    3300002: building4
-    3300004: pCube1
-    3300006: building_1
-    3300008: building_2
-    3300010: building_3
-    3300012: building_4
-    3300014: building_5
-    4300000: building1
-    4300002: building4
-    4300004: pCube1
-    4300006: building_1
-    4300008: building_2
-    4300010: building_3
-    4300012: building_4
-    4300014: building_5
-    9500000: //RootNode
+    100000: Building_7
+    100002: //RootNode
+    400000: Building_7
+    400002: //RootNode
+    2100000: initialShadingGroup
+    2300000: Building_7
+    3300000: Building_7
+    4300000: Building_7
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -163,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
