@@ -454,8 +454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dcfa7e5c9f0bbc48a552ae69c91102b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AspectRatio: {fileID: 114442045874602086}
   raycastReach: 3
+  AspectRatio: {fileID: 114442045874602086}
+  canClick: 0
 --- !u!114 &114442045874602086
 MonoBehaviour:
   m_ObjectHideFlags: 1
