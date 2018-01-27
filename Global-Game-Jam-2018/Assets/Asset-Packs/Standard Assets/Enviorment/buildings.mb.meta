@@ -34,6 +34,29 @@ ModelImporter:
     100052: transform8
     100054: transform9
     100056: building_5
+    100058: Building_6
+    100060: Building_7
+    100062: Building_8
+    100064: building_9
+    100066: computer
+    100068: idontevenknow
+    100070: keylock
+    100072: pCylinder1
+    100074: pCylinder2
+    100076: pCylinder3
+    100078: pCylinder4
+    100080: pCylinder5
+    100082: Terminal
+    100084: transform11
+    100086: transform12
+    100088: transform13
+    100090: transform14
+    100092: transform15
+    100094: transform16
+    100096: transform17
+    100098: transform18
+    100100: building_8
+    100102: Building_9
     400000: backpipe
     400002: building1
     400004: building2
@@ -63,7 +86,34 @@ ModelImporter:
     400052: transform8
     400054: transform9
     400056: building_5
+    400058: Building_6
+    400060: Building_7
+    400062: Building_8
+    400064: building_9
+    400066: computer
+    400068: idontevenknow
+    400070: keylock
+    400072: pCylinder1
+    400074: pCylinder2
+    400076: pCylinder3
+    400078: pCylinder4
+    400080: pCylinder5
+    400082: Terminal
+    400084: transform11
+    400086: transform12
+    400088: transform13
+    400090: transform14
+    400092: transform15
+    400094: transform16
+    400096: transform17
+    400098: transform18
+    400100: building_8
+    400102: Building_9
     2100000: lambert1
+    2100002: NeonYellow
+    2100004: NeonGreen
+    2100006: NeonPink
+    2100008: NeonBlue
     2300000: building1
     2300002: building4
     2300004: pCube1
@@ -72,6 +122,13 @@ ModelImporter:
     2300010: building_3
     2300012: building_4
     2300014: building_5
+    2300016: Building_6
+    2300018: Building_7
+    2300020: Building_8
+    2300022: building_9
+    2300024: Terminal
+    2300026: building_8
+    2300028: Building_9
     3300000: building1
     3300002: building4
     3300004: pCube1
@@ -80,6 +137,13 @@ ModelImporter:
     3300010: building_3
     3300012: building_4
     3300014: building_5
+    3300016: Building_6
+    3300018: Building_7
+    3300020: Building_8
+    3300022: building_9
+    3300024: Terminal
+    3300026: building_8
+    3300028: Building_9
     4300000: building1
     4300002: building4
     4300004: pCube1
@@ -88,6 +152,13 @@ ModelImporter:
     4300010: building_3
     4300012: building_4
     4300014: building_5
+    4300016: Building_6
+    4300018: Building_7
+    4300020: Building_8
+    4300022: building_9
+    4300024: Terminal
+    4300026: building_8
+    4300028: Building_9
     9500000: //RootNode
   externalObjects: {}
   materials:
