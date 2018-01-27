@@ -10,6 +10,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+    	[Header("Jetpack Variables")]
+    	[TooltipAttribute("Needs to be very small - 0.05f is default")]
+    	[Header("Needs to be very small - 0.05f is default")]
+    	[SerializeField] private float Thrust = 0.05f;
+    	// Custom private
+		private CameraShake CameraShake;
+
+		[Header("Default Unity Variables")]
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -41,8 +49,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-
-		private CameraShake CameraShake;
 
         // Use this for initialization
         private void Start()
@@ -92,14 +98,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				CameraShake.justShake = false;
 			}
 
+			/* Ethan's Jetpack Code END*/
+
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
         }
 
 		private void Jetpack(){
 			//Debug.Log ("Jetpack");
 			m_Jump = false;
 			m_GravityMultiplier = 0.5f;
-			m_CharacterController.Move (Vector3.up * 0.05f);
+			m_CharacterController.Move (Vector3.up * Thrust);
 			CameraShake.justShake = true;
 			// Jetpack sound
 		}
@@ -131,6 +140,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (m_CharacterController.isGrounded)
             {
+
+            	// Additional check, to make sure that the camera shake turns off
+            	CameraShake.justShake = false;
+
                 m_MoveDir.y = -m_StickToGroundForce;
 
                 if (m_Jump)
