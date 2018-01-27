@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour {
 	/*****Game Functions******/
 
 	public void LaunchHack(){
+		hackingGame.Invoke ("CommenceHacking", 0f);
 		hackingCanvas.SetActive (true);
-		hackingGame.CommenceHacking ();
 		DisablePlayerController(true);
 	}
 	public void StopHacking() {
@@ -98,8 +98,8 @@ public class GameManager : MonoBehaviour {
 
 	public void DisablePlayerController(bool status){
 		if (status == true){
-			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.None;
+			//Cursor.visible = true;
+			//Cursor.lockState = CursorLockMode.None;
 			controller.enabled = false;
 		}
 		if (status == false){

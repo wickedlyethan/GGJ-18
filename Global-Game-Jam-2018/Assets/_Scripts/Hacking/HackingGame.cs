@@ -29,7 +29,7 @@ public class HackingGame : MonoBehaviour {
 	public void CommenceHacking () {
 		successCount = Mathf.Clamp(0, 0, hackingInfo[hackingID].PlayerCommands.Length);
 		chancesLeft = 3;
-		StartCoroutine ("LaunchGame", 0f);
+		PrepareGame ();
 	}
 	
 	// Update is called once per frame
@@ -37,6 +37,9 @@ public class HackingGame : MonoBehaviour {
 		successCount = Mathf.Clamp(successCount, 0, (hackingInfo[hackingID].PlayerCommands.Length));
 		if (Input.GetKeyDown (KeyCode.Return)) {
 			Hack ();
+		}
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			GameManager.instance.StopHacking();
 		}
 		if (successCount == (hackingInfo [hackingID].PlayerCommands.Length)) {
 			Debug.Log ("Hacking Complete");
@@ -72,17 +75,16 @@ public class HackingGame : MonoBehaviour {
 			chancesLeft--;
 		}
 		if (successCount == hackingInfo [hackingID].PlayerCommands.Length) {
-			Debug.Log("Hacking Complete");
+			Debug.Log ("Hacking Complete");
 			consoleText.text += ("\n" + "---------------" + "\n" + "HACKING COMPLETE" + "\n" + "---------------" + "\n");
 		}
 		consoleInput.Select ();
 		consoleInput.ActivateInputField ();
 	}
-	public IEnumerator LaunchGame (float delay) {
-		yield return new WaitForSeconds (delay);
+	public void PrepareGame () {
 		consoleText.text = ("Hacking Game: " + (hackingID + 1));
+		tempLine = hackingInfo [hackingID].PlayerCommands [successCount];
 		consoleInput.Select ();
 		consoleInput.ActivateInputField ();
-		tempLine = hackingInfo [hackingID].PlayerCommands [successCount];
 	}
 }
