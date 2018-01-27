@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HackingGame : MonoBehaviour {
 
+	public GameManager gameManager;
+
 	public InputField consoleInput;
 	public Text consoleText;
 	public HackingInfo[] hackingInfo;
@@ -18,8 +20,13 @@ public class HackingGame : MonoBehaviour {
 	[SerializeField] private int hacksCompleted;
 	[SerializeField] private int successCount;
 	[SerializeField] private int chancesLeft = 3;
-	// Use this for initialization
-	void Start () {
+
+	void Awake () {
+
+	}
+
+
+	public void CommenceHacking () {
 		StartCoroutine ("LaunchGame", 0f);
 	}
 	
@@ -33,8 +40,12 @@ public class HackingGame : MonoBehaviour {
 			Debug.Log ("Hacking Complete");
 			consoleText.text += ("\n" + "------------------" + "\n" + "HACKING COMPLETE" + "\n" + "------------------" + "\n");
 			hackingID++;
-			StartCoroutine ("LaunchGame", delay);
+			GameManager.instance.Invoke ("StopHacking", 1.5f);
 
+		}
+		if (chancesLeft == 0) {
+			Debug.Log ("Hacking Failed");
+			GameManager.instance.Invoke("StopHacking", 1.5f);
 		}
 	}
 /*	void LaunchGame() {
@@ -44,7 +55,7 @@ public class HackingGame : MonoBehaviour {
 		consoleInput.ActivateInputField ();
 		tempLine = hackingInfo [hackingID].PlayerCommands [successCount];
 	}*/
-	void Hack () {
+	public void Hack () {
 		inputLine = consoleInput.text;
 		if (inputLine == tempLine) {
 			Debug.Log ("Comparison Success");
@@ -56,9 +67,6 @@ public class HackingGame : MonoBehaviour {
 			consoleText.text += ("" + "\n" + inputLine + "\n" + "COMMAND NOT SUCCESSFUL" + "\n");
 			consoleInput.text = "";
 			chancesLeft--;
-			if (chancesLeft == 0) {
-				Debug.Log ("Hacking Failed");
-			}
 		}
 		if (successCount == hackingInfo [hackingID].PlayerCommands.Length) {
 			Debug.Log("Hacking Complete");

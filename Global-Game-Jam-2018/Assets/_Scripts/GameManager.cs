@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour {
 	public GameObject thePlayer;
 	private UnityStandardAssets.Characters.FirstPerson.FirstPersonController controller;
 
+	[Header("Hacking Game")]
+	public GameObject hackingCanvas;
+	public HackingGame hackingGame;
+
 	// Pause Canvas
 	public GameObject PauseCanvas;
 
@@ -36,6 +40,7 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 
 		/*References*/
+		hackingGame = hackingCanvas.GetComponent<HackingGame> ();
 		controller = thePlayer.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
 
 		/*Resets*/
@@ -57,8 +62,13 @@ public class GameManager : MonoBehaviour {
 	/*****Game Functions******/
 
 	public void LaunchHack(){
-		// Code to initiate hacking mini-game
+		hackingCanvas.SetActive (true);
+		hackingGame.CommenceHacking ();
 		DisablePlayerController(true);
+	}
+	public void StopHacking() {
+		hackingCanvas.SetActive (false);
+		DisablePlayerController (false);
 	}
 
 	public void DestroyPoster(){

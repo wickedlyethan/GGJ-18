@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Name: Easy
   m_EditorClassIdentifier: 
   eventID: 1
-  PlayerCommands: []
+  PlayerCommands:
+  - cupofcontrol
+  - hideandseek
+  - runandgun
