@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4463517867499704}
   - component: {fileID: 114438195825276300}
+  - component: {fileID: 114588282478598080}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,4 +53,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thePlayer: {fileID: 0}
+  hackingCanvas: {fileID: 0}
+  hackingGame: {fileID: 0}
   PauseCanvas: {fileID: 0}
+  PosterCameraShake: 0.5
+  PostersThatExist: 0
+  PostersDestroyed: 0
+--- !u!114 &114588282478598080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1562368238463652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bffefbf0aaf084c871f9d23037e7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTexture: {fileID: 2800000, guid: 1b9bfaa240050a744b05d2796f4d3f96, type: 3}
+  fadeSpeed: 0.25
+  alpha: 1

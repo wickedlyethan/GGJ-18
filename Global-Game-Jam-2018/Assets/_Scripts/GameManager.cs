@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour {
 		else if (instance != this){Destroy(gameObject);}
 		DontDestroyOnLoad(gameObject);
 
+		GetComponent<FadingInOut>().BeginFade(-1);
+
 		/*References*/
 		hackingGame = hackingCanvas.GetComponent<HackingGame> ();
 		controller = thePlayer.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();

@@ -134,6 +134,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void PlayLandingSound()
         {
+    		Debug.Log("Fuck");
+    		m_AudioSource.loop = false;
             m_AudioSource.clip = m_LandSound;
             m_AudioSource.Play();
             m_NextStep = m_StepCycle + .5f;
