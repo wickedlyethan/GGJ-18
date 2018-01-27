@@ -14,6 +14,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
     	[TooltipAttribute("Needs to be very small - 0.05f is default")]
     	[Header("Needs to be very small - 0.05f is default")]
     	[SerializeField] private float Thrust = 0.05f;
+    	[SerializeField] private AudioClip JetPack_Loop;
+    	[SerializeField] private AudioClip JetPack_Release;
+    	private bool JetpackAudioPlaying;
     	// Custom private
 		private CameraShake CameraShake;
 
@@ -53,8 +56,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
+        	CameraShake = GetComponent<CameraShake> ();
+
             m_CharacterController = GetComponent<CharacterController>();
-			CameraShake = GetComponent<CameraShake> ();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
@@ -94,8 +98,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				Jetpack ();
 			}
 			if (m_Jumping == true && CrossPlatformInputManager.GetButtonUp("Jump")) {
-				m_GravityMultiplier = 2f;
-				CameraShake.justShake = false;
+				JetPackEnd();
 			}
 
 			/* Ethan's Jetpack Code END*/
@@ -110,7 +113,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_GravityMultiplier = 0.5f;
 			m_CharacterController.Move (Vector3.up * Thrust);
 			CameraShake.justShake = true;
-			// Jetpack sound
+			if (JetpackAudioPlaying == false){
+				// Jetpack sound
+				m_AudioSource.clip = JetPack_Loop;
+				m_AudioSource.loop = true;
+				m_AudioSource.Play();
+				JetpackAudioPlaying = true;		
+			}
+		}
+
+		private void JetPackEnd(){
+			m_GravityMultiplier = 2f;
+			CameraShake.justShake = false;
+			// Play release sound
+			m_AudioSource.loop = false;
+			m_AudioSource.clip = JetPack_Release;
+			m_AudioSource.Play();
+			JetpackAudioPlaying = false;
 		}
 
         private void PlayLandingSound()

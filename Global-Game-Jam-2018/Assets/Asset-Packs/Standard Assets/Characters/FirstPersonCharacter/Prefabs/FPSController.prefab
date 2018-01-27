@@ -215,6 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Thrust: 0.05
+  JetPack_Loop: {fileID: 8300000, guid: c124688d63141064885c7a82f98ae2e9, type: 3}
+  JetPack_Release: {fileID: 8300000, guid: 3af00250e5d753945817de44324aae75, type: 3}
   m_IsWalking: 0
   m_WalkSpeed: 5
   m_RunSpeed: 10
