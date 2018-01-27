@@ -681,13 +681,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consoleInput: {fileID: 1930255468}
   consoleText: {fileID: 826663419}
-  eventID:
+  hackingInfo:
   - {fileID: 11400000, guid: 53f93e84cea1bdd4898e9a8df625e453, type: 2}
-  - {fileID: 11400000, guid: 8fc703460f5af9c4dba8ab36cbbc60da, type: 2}
-  - {fileID: 11400000, guid: b54c740dd24649944909566e410fd5ce, type: 2}
-  - {fileID: 11400000, guid: 5e6b19cc575c659499cd81b5857ceaa0, type: 2}
-  - {fileID: 11400000, guid: a2156ca4b6bfe1e4d988e5a4741b396e, type: 2}
   inputLine: 
+  tempLine: 
+  hackingID: 0
+  hacksCompleted: 0
+  successCount: 0
 --- !u!1 &1652972492
 GameObject:
   m_ObjectHideFlags: 0

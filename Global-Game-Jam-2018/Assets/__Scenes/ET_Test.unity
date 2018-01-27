@@ -284,20 +284,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1678145283598982, guid: e9e2437c81d65454ea8c6f71988c3aab, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862002803126852, guid: e9e2437c81d65454ea8c6f71988c3aab, type: 2}
-      propertyPath: m_Name
-      value: Paused_Text
-      objectReference: {fileID: 0}
-    - target: {fileID: 114188938990515996, guid: e9e2437c81d65454ea8c6f71988c3aab,
-        type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 68d16132bb71af544a811824079e8e66,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9e2437c81d65454ea8c6f71988c3aab, type: 2}
   m_IsPrefabParent: 0
@@ -554,10 +540,9 @@ GameObject:
   - component: {fileID: 1930115731}
   - component: {fileID: 1930115730}
   - component: {fileID: 1930115729}
-  - component: {fileID: 1930115733}
   m_Layer: 0
   m_Name: HackerTest
-  m_TagString: Untagged
+  m_TagString: Poster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -628,17 +613,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1930115733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1930115728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d88fe7b542fd06044a27bd1764111870, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2086439021
 Prefab:
   m_ObjectHideFlags: 0
