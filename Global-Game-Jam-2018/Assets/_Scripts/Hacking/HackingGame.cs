@@ -5,19 +5,26 @@ using UnityEngine.UI;
 
 public class HackingGame : MonoBehaviour {
 
-	public InputField console;
+	public InputField consoleInput;
+	public Text consoleText;
+	public HackingInfo[] eventID;
 
 	public string inputLine;
 	// Use this for initialization
 	void Start () {
-		
+		consoleInput.Select ();
+		consoleInput.ActivateInputField ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Return)) {
-			inputLine = console.text;
+			inputLine = consoleInput.text;
+			consoleInput.text = "";
 			Debug.Log (inputLine);
+			consoleText.text += (inputLine + "\n");
+			consoleInput.Select ();
+			consoleInput.ActivateInputField ();
 		}
 	}
 }

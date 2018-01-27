@@ -23,6 +23,16 @@ ModelImporter:
     100030: transform5
     100032: transform6
     100034: transform7
+    100036: building5
+    100038: building_1
+    100040: building_2
+    100042: building_3
+    100044: building_4
+    100046: light
+    100048: platform
+    100050: transform10
+    100052: transform8
+    100054: transform9
     400000: backpipe
     400002: building1
     400004: building2
@@ -41,16 +51,38 @@ ModelImporter:
     400030: transform5
     400032: transform6
     400034: transform7
+    400036: building5
+    400038: building_1
+    400040: building_2
+    400042: building_3
+    400044: building_4
+    400046: light
+    400048: platform
+    400050: transform10
+    400052: transform8
+    400054: transform9
     2100000: lambert1
     2300000: building1
     2300002: building4
     2300004: pCube1
+    2300006: building_1
+    2300008: building_2
+    2300010: building_3
+    2300012: building_4
     3300000: building1
     3300002: building4
     3300004: pCube1
+    3300006: building_1
+    3300008: building_2
+    3300010: building_3
+    3300012: building_4
     4300000: building1
     4300002: building4
     4300004: pCube1
+    4300006: building_1
+    4300008: building_2
+    4300010: building_3
+    4300012: building_4
     9500000: //RootNode
   externalObjects: {}
   materials:
