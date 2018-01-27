@@ -80,8 +80,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_MoveDir.y = 0f;
             }
 
+			/* Ethan's Jetpack Code*/
+
+			if (m_Jumping == true && CrossPlatformInputManager.GetButton("Jump")) {
+				Jetpack ();
+			}
+			if (m_Jumping == true && CrossPlatformInputManager.GetButtonUp("Jump")) {
+				m_GravityMultiplier = 2f;
+			}
+
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
+
+		private void Jetpack(){
+			m_Jump = false;
+			Debug.Log ("Jetpack");
+			m_GravityMultiplier = 0.5f;
+			GetComponent<CharacterController> ().Move (Vector3.up);
+		}
 
 
         private void PlayLandingSound()
