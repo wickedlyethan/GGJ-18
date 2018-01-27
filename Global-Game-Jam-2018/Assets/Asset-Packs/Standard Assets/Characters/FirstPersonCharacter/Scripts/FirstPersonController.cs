@@ -57,7 +57,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
 
-
         // Update is called once per frame
         private void Update()
         {
@@ -93,12 +92,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 		private void Jetpack(){
+			//Debug.Log ("Jetpack");
 			m_Jump = false;
-			Debug.Log ("Jetpack");
 			m_GravityMultiplier = 0.5f;
-			GetComponent<CharacterController> ().Move (Vector3.up);
+			m_CharacterController.Move (Vector3.up * 0.05f);
+			// Jetpack sound
 		}
-
 
         private void PlayLandingSound()
         {
