@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
  	[Header("Ad Hacking")]
  	public int hacksCompleted;
  	public GameObject[] AdsToHack;
+ 	public Material[] NewMaterials;
  	[Header("Poster Smashing")]
  	public float PosterCameraShake = 0.5f;
  	public int PostersThatExist;
@@ -86,7 +87,8 @@ public class GameManager : MonoBehaviour {
 		DisablePlayerController (false);
 		if (didWin == true){
 			PlayResultSound(true);
-			// TODO: Disable Billboard
+			// TODO: Change Billboard Texture
+			AdsToHack[hacksCompleted].GetComponent<MeshRenderer>().material = NewMaterials[hacksCompleted];
 			hacksCompleted++;
 		}
 		else if (didWin == false){PlayResultSound(false);}
