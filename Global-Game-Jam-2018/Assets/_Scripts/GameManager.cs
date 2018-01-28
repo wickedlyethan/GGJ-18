@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour {
 		/*References*/
 		hackingGame = hackingCanvas.GetComponent<HackingGame>();
 		controller = thePlayer.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
-		ReticleRaycast = thePlayer.GetComponent<ReticleRaycast> ();
+		ReticleRaycast = thePlayer.GetComponentInChildren<ReticleRaycast> ();
 
 		/*Resets*/
 		RespawnLocation = thePlayer.transform.position;
@@ -97,6 +97,9 @@ public class GameManager : MonoBehaviour {
 			// TODO: Change Billboard Texture
 			AdsToHack[hacksCompleted].GetComponent<MeshRenderer>().material = NewMaterials[hacksCompleted];
 			hacksCompleted++;
+			if (hacksCompleted == AdsToHack.Length){
+				Quit();
+			}
 		}
 		else if (didWin == false){PlayResultSound(false);}
 		canPause = true;
@@ -163,6 +166,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void Quit(){
+		Debug.Log("Quitting");
 		Application.Quit();
 	}
 }

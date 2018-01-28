@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 2000000}
   - component: {fileID: 8100000}
   - component: {fileID: 12474086}
+  - component: {fileID: 114788675334752888}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -217,12 +218,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Thrust: 0.05
+  Thrust: 0.07
   JetPack_Loop: {fileID: 8300000, guid: c124688d63141064885c7a82f98ae2e9, type: 3}
   JetPack_Release: {fileID: 8300000, guid: 3af00250e5d753945817de44324aae75, type: 3}
   CameraShake: {fileID: 0}
   m_IsWalking: 0
-  m_WalkSpeed: 8
+  m_WalkSpeed: 6
   m_RunSpeed: 13
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 10
@@ -504,12 +505,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dcfa7e5c9f0bbc48a552ae69c91102b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastReach: 2.5
+  raycastReach: 4
   AspectRatio: {fileID: 114442045874602086}
   AnarchyReticle: {fileID: 1500689628030034}
   HackingReticle: {fileID: 1804858211586570}
@@ -557,6 +558,22 @@ MonoBehaviour:
   justShake: 0
   shakeAmount: 0.1
   decreaseFactor: 1
+--- !u!114 &114788675334752888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dcfa7e5c9f0bbc48a552ae69c91102b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastReach: 4
+  AspectRatio: {fileID: 114442045874602086}
+  AnarchyReticle: {fileID: 1500689628030034}
+  HackingReticle: {fileID: 1804858211586570}
+  canClick: 0
 --- !u!114 &114841179261345434
 MonoBehaviour:
   m_ObjectHideFlags: 1
