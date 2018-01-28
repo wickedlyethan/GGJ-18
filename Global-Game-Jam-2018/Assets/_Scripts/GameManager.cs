@@ -108,4 +108,8 @@ public class GameManager : MonoBehaviour {
 			controller.enabled = true;
 		}
 	}
+
+	public void Quit(){
+		Application.Quit();
+	}
 }
