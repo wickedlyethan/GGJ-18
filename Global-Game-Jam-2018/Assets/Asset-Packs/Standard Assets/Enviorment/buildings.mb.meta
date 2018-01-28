@@ -57,6 +57,7 @@ ModelImporter:
     100098: transform18
     100100: building_8
     100102: Building_9
+    100104: directionalLight1
     400000: backpipe
     400002: building1
     400004: building2
@@ -109,11 +110,15 @@ ModelImporter:
     400098: transform18
     400100: building_8
     400102: Building_9
+    400104: directionalLight1
     2100000: lambert1
     2100002: NeonYellow
     2100004: NeonGreen
     2100006: NeonPink
     2100008: NeonBlue
+    2100010: screen
+    2100012: metal
+    2100014: Keyboard
     2300000: building1
     2300002: building4
     2300004: pCube1
@@ -159,6 +164,7 @@ ModelImporter:
     4300024: Terminal
     4300026: building_8
     4300028: Building_9
+    7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
   materials:
