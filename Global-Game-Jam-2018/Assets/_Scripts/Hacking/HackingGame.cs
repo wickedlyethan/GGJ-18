@@ -38,7 +38,7 @@ public class HackingGame : MonoBehaviour {
 			Debug.Log ("Hacking Complete");
 			consoleText.text += ("\n" + "------------------" + "\n" + "HACKING COMPLETE" + "\n" + "------------------" + "\n");
 			hackingID++;
-			GameManager.instance.StopHacking(true);
+			StartCoroutine ("ExitDelay", 0f);
 
 		}
 		if (chancesLeft == 0) {
@@ -46,6 +46,11 @@ public class HackingGame : MonoBehaviour {
 			consoleText.text += ("\n" + "------------------" + "\n" + "HACKING FAILED" + "\n" + "------------------" + "\n");
 			GameManager.instance.StopHacking(false);
 		}
+	}
+
+	private IEnumerator ExitDelay (float delay) {
+		yield return new WaitForSeconds (1.5f);
+		GameManager.instance.StopHacking(true);
 	}
 /*	void LaunchGame() {
 		consoleText.text = (" ");

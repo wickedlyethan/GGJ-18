@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	// The Player
 	public GameObject thePlayer;
 	private UnityStandardAssets.Characters.FirstPerson.FirstPersonController controller;
+	private ReticleRaycast ReticleRaycast;
 
 	[Header("Hacking Game")]
 	public GameObject hackingCanvas;
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour {
 		/*References*/
 		hackingGame = hackingCanvas.GetComponent<HackingGame>();
 		controller = thePlayer.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
+		ReticleRaycast = thePlayer.GetComponent<ReticleRaycast> ();
 
 		/*Resets*/
 		RespawnLocation = thePlayer.transform.position;
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour {
 		hackingCanvas.SetActive (true);
 		DisablePlayerController(true);
 		canPause = false;
+		ReticleRaycast.enabled = false;
 	}
 	public void StopHacking(bool didWin) {
 		hackingCanvas.SetActive (false);
@@ -97,6 +100,7 @@ public class GameManager : MonoBehaviour {
 		}
 		else if (didWin == false){PlayResultSound(false);}
 		canPause = true;
+		ReticleRaycast.enabled = true;
 	}
 
 	public void DestroyPoster(){
