@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: 3
   PlayerCommands:
-  - mirror_Shaders;
-  - engender_Binary;
-  - enlarge_Cyberdeck;
-  - reload {Matrix};
-  - type bad_Pun;
+  - mirror_shaders;
+  - engender_binary;
+  - enlarge_cyberdeck;
+  - reload {matrix};
+  - type bad_pun;

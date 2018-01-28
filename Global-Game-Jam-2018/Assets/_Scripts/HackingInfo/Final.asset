@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: 4
   PlayerCommands:
-  - Translate 1337512341<;
-  - embearden_Grognards;
-  - grok_Autogrokker;
-  - the_Man = null;
-  - ignore_ALL {compiler_Error};
-  - setString {Jetpacks} = {love.txt} = {life.txt};
+  - translate 1337
+  - embearden_grognards;
+  - grok_autogrokker;
+  - the_man = null;
+  - ignore_all {compiler_Error};
+  - setstring {setpacks} = {love.txt} = {life.txt};

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: 1
   PlayerCommands:
-  - Delete oppression.jpg
-  - Call function {NAMES};
-  - CodeCodeCodeCodeCodeCode
+  - delete tyranny.jpg
+  - call function {names};
+  - codecodecode

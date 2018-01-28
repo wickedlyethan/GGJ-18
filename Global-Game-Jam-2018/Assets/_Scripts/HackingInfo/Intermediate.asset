@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: 2
   PlayerCommands:
-  - Reinstate democracy.png
-  - Resolve_ALL warringTrojans;
-  - 'Build: Gates_and_Windows;'
-  - Run blade.exe;
+  - reinstate democracy.png
+  - resolve_all warringtrojans;
+  - 'build: gates_and_windows;'
+  - run blade.exe;
