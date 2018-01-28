@@ -10,6 +10,7 @@ ModelImporter:
     400000: Terminal
     400002: //RootNode
     2100000: initialShadingGroup
+    2100002: lambert5SG
     2300000: Terminal
     3300000: Terminal
     4300000: Terminal
