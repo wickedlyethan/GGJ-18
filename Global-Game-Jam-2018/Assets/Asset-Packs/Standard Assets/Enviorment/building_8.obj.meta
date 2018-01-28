@@ -7,18 +7,12 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: building_9
-    100004: building_8
     400000: //RootNode
     400002: building_9
-    400004: building_8
     2100000: lambert4SG
-    2100002: lambert7SG
     2300000: building_9
-    2300002: building_8
     3300000: building_9
-    3300002: building_8
     4300000: building_9
-    4300002: building_8
   externalObjects: {}
   materials:
     importMaterials: 1
