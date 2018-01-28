@@ -61,15 +61,16 @@ public class HackingGame : MonoBehaviour {
 			consoleText.text += ("" + "\n" + inputLine + "\n" + "COMMAND SUCCESSFUL" + "\n");
 			consoleInput.text = "";
 			successCount++;
-			tempLine = hackingInfo [hackingID].PlayerCommands [successCount];
+			if (successCount == hackingInfo [hackingID].PlayerCommands.Length) {
+				Debug.Log ("Hacking Complete");
+				consoleText.text += ("\n" + "---------------" + "\n" + "HACKING COMPLETE" + "\n" + "---------------" + "\n");
+			} else {
+				tempLine = hackingInfo [hackingID].PlayerCommands [successCount];
+			}
 		} else if (inputLine != tempLine) {
 			consoleText.text += ("" + "\n" + inputLine + "\n" + "COMMAND NOT SUCCESSFUL" + "\n");
 			consoleInput.text = "";
 			chancesLeft--;
-		}
-		if (successCount == hackingInfo [hackingID].PlayerCommands.Length) {
-			Debug.Log ("Hacking Complete");
-			consoleText.text += ("\n" + "---------------" + "\n" + "HACKING COMPLETE" + "\n" + "---------------" + "\n");
 		}
 		consoleInput.Select ();
 		consoleInput.ActivateInputField ();

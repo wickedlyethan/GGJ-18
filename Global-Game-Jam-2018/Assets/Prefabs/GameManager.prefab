@@ -427,11 +427,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dd072ff579588a745ad90afc76a4b82c, type: 3}
   PauseCanvas: {fileID: 0}
   hacksCompleted: 0
-  AdsToHack: []
-  NewMaterials: []
+  AdsToHack:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  NewMaterials:
+  - {fileID: 2100000, guid: e958cbfbe52bf17488c234d632411703, type: 2}
+  - {fileID: 2100000, guid: 1c2a8c5230a25a049ba02c125cb9eb34, type: 2}
+  - {fileID: 2100000, guid: 1789f2fa7bd84424999452f8d5562d3a, type: 2}
+  - {fileID: 2100000, guid: 04d5cad2a6bd3ff499935258896deb8f, type: 2}
   PosterCameraShake: 0.5
   PostersThatExist: 0
   PostersDestroyed: 0
+  RespawnLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &114588282478598080
 MonoBehaviour:
   m_ObjectHideFlags: 1
