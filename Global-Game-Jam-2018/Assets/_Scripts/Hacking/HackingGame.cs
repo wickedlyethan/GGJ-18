@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class HackingGame : MonoBehaviour {
 
-	public GameManager gameManager;
-
 	public InputField consoleInput;
 	public Text consoleText;
+	public Text HelpText;
 	public HackingInfo[] hackingInfo;
 
 	public string inputLine;
@@ -17,14 +16,8 @@ public class HackingGame : MonoBehaviour {
 	[Header("Counters")]
 	[SerializeField] private string tempLine;
 	[SerializeField] private int hackingID;
-	[SerializeField] private int hacksCompleted;
 	[SerializeField] private int successCount;
 	[SerializeField] private int chancesLeft = 3;
-
-	void Awake () {
-
-	}
-
 
 	public void CommenceHacking () {
 		successCount = Mathf.Clamp(0, 0, hackingInfo[hackingID].PlayerCommands.Length);
@@ -39,19 +32,19 @@ public class HackingGame : MonoBehaviour {
 			Hack ();
 		}
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			GameManager.instance.StopHacking();
+			GameManager.instance.StopHacking(false);
 		}
 		if (successCount == (hackingInfo [hackingID].PlayerCommands.Length)) {
 			Debug.Log ("Hacking Complete");
 			consoleText.text += ("\n" + "------------------" + "\n" + "HACKING COMPLETE" + "\n" + "------------------" + "\n");
 			hackingID++;
-			GameManager.instance.Invoke ("StopHacking", 1.5f);
+			GameManager.instance.StopHacking(true);
 
 		}
 		if (chancesLeft == 0) {
 			Debug.Log ("Hacking Failed");
 			consoleText.text += ("\n" + "------------------" + "\n" + "HACKING FAILED" + "\n" + "------------------" + "\n");
-			GameManager.instance.Invoke("StopHacking", 1.5f);
+			GameManager.instance.StopHacking(false);
 		}
 	}
 /*	void LaunchGame() {
@@ -84,7 +77,17 @@ public class HackingGame : MonoBehaviour {
 	public void PrepareGame () {
 		consoleText.text = ("Hacking Game: " + (hackingID + 1));
 		tempLine = hackingInfo [hackingID].PlayerCommands [successCount];
+		HelpTextDisplay();
 		consoleInput.Select ();
 		consoleInput.ActivateInputField ();
+	}
+	private void HelpTextDisplay(){
+		HackingInfo temp = hackingInfo [hackingID];
+		string Help = "AVAILABLE COMMANDS:" + "\n";
+		for (int i = 0; i < temp.PlayerCommands.Length; i++){
+			Help += temp.PlayerCommands[i];
+			Help += "\n";
+		}
+		HelpText.text = Help;
 	}
 }

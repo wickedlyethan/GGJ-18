@@ -31,15 +31,17 @@ public class GameManager : MonoBehaviour {
 
  	[Header("Game Variables")]
  	// Public
- 	// Hacking-Related
-
- 	// Poster-Related
+ 	[Header("Ad Hacking")]
+ 	public int hacksCompleted;
+ 	public GameObject[] AdsToHack;
+ 	[Header("Poster Smashing")]
  	public float PosterCameraShake = 0.5f;
  	public int PostersThatExist;
  	public int PostersDestroyed;
 
  	// Private
-	private bool isPaused;
+	private bool isPaused = false;
+	private bool canPause = true;
 
 	/*****Defaults******/
 
@@ -76,10 +78,18 @@ public class GameManager : MonoBehaviour {
 		hackingGame.Invoke ("CommenceHacking", 0f);
 		hackingCanvas.SetActive (true);
 		DisablePlayerController(true);
+		canPause = false;
 	}
-	public void StopHacking() {
+	public void StopHacking(bool didWin) {
 		hackingCanvas.SetActive (false);
 		DisablePlayerController (false);
+		if (didWin == true){
+			PlayResultSound(true);
+			// TODO: Disable Billboard
+			hacksCompleted++;
+		}
+		else if (didWin == false){PlayResultSound(false);}
+		canPause = true;
 	}
 
 	public void DestroyPoster(){
@@ -107,12 +117,14 @@ public class GameManager : MonoBehaviour {
 	/*****Utility******/
 
 	void pause(){
-		PauseCanvas.SetActive(true);
-		DisablePlayerController (true);
-		isPaused = true;
-		Time.timeScale = 0.5f;
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
+		if(canPause == true){
+			PauseCanvas.SetActive(true);
+			DisablePlayerController (true);
+			isPaused = true;
+			Time.timeScale = 0.5f;
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+		}
 	}
 	void unPause(){
 		PauseCanvas.SetActive(false);
@@ -121,7 +133,7 @@ public class GameManager : MonoBehaviour {
 		Time.timeScale = 1.0f;
 	}
 
-	public void DisablePlayerController(bool status){
+	public void DisablePlayerController (bool status){
 		if (status == true){
 			//Cursor.visible = true;
 			//Cursor.lockState = CursorLockMode.None;
