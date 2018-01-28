@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 224029772831998868}
   - component: {fileID: 222303422310540520}
   - component: {fileID: 114501176473525778}
-  - component: {fileID: 114264997957737986}
   m_Layer: 5
   m_Name: Frame
   m_TagString: Untagged
@@ -127,7 +126,7 @@ GameObject:
   - component: {fileID: 222605961448124654}
   - component: {fileID: 114577406526018568}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HelpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1817289461044318
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,18 +315,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: TEXT GOES EHRE
---- !u!114 &114264997957737986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1091121081748426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!114 &114302439392223792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -619,9 +606,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f7871565a159f40b3eb6955845fd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   consoleInput: {fileID: 114302439392223792}
   consoleText: {fileID: 114168712253696272}
+  HelpText: {fileID: 114577406526018568}
   hackingInfo:
   - {fileID: 11400000, guid: 53f93e84cea1bdd4898e9a8df625e453, type: 2}
   - {fileID: 11400000, guid: 8fc703460f5af9c4dba8ab36cbbc60da, type: 2}
@@ -629,7 +616,6 @@ MonoBehaviour:
   delay: 2
   tempLine: 
   hackingID: 0
-  hacksCompleted: 0
   successCount: 0
   chancesLeft: 3
 --- !u!114 &114902783259440296
@@ -748,6 +734,9 @@ MonoBehaviour:
 
 
     BACKSPACE - Delete Text
+
+
+    CASE SENSITIVE, DUDE
 
 '
 --- !u!114 &114997974368945188
@@ -1041,9 +1030,9 @@ RectTransform:
   m_Father: {fileID: 224513344631063144}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -600}
   m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224742586993754386
@@ -1081,8 +1070,8 @@ RectTransform:
   m_Father: {fileID: 224513344631063144}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 660, y: -600}
   m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
