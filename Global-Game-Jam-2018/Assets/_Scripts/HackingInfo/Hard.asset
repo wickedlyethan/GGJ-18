@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Name: Hard
   m_EditorClassIdentifier: 
   eventID: 3
-  PlayerCommands: []
+  PlayerCommands:
+  - mirror_Shaders;
+  - engender_Binary;
+  - enlarge_Cyberdeck;
+  - reload {Matrix};
+  - type bad_Pun;

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Name: Intermediate
   m_EditorClassIdentifier: 
   eventID: 2
-  PlayerCommands: []
+  PlayerCommands:
+  - Reinstate democracy.png
+  - Resolve_ALL warringTrojans;
+  - 'Build: Gates_and_Windows;'
+  - Run blade.exe;

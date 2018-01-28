@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Name: Final
   m_EditorClassIdentifier: 
   eventID: 4
-  PlayerCommands: []
+  PlayerCommands:
+  - Translate 1337512341<;
+  - embearden_Grognards;
+  - grok_Autogrokker;
+  - the_Man = null;
+  - ignore_ALL {compiler_Error};
+  - setString {Jetpacks} = {love.txt} = {life.txt};
