@@ -7,13 +7,19 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Terminal
     100002: //RootNode
+    100004: Terminal:Terminal
     400000: Terminal
     400002: //RootNode
+    400004: Terminal:Terminal
     2100000: initialShadingGroup
     2100002: lambert5SG
+    2100004: Terminal_lambert5SG
     2300000: Terminal
+    2300002: Terminal:Terminal
     3300000: Terminal
+    3300002: Terminal:Terminal
     4300000: Terminal
+    4300002: Terminal:Terminal
   externalObjects: {}
   materials:
     importMaterials: 1
