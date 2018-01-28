@@ -17,6 +17,15 @@ public class GameManager : MonoBehaviour {
 	public GameObject hackingCanvas;
 	public HackingGame hackingGame;
 
+	[Header("Sound Effects")]
+	// public AudioSource Music_Source;
+	public AudioSource SFX_Source;
+	public AudioSource Result_Source;
+	public AudioClip SuccessSFX;
+	public AudioClip FailureSFX;
+	public AudioClip[] SmashSFX;
+
+	[Header("UI References")]
 	// Pause Canvas
 	public GameObject PauseCanvas;
 
@@ -42,7 +51,7 @@ public class GameManager : MonoBehaviour {
 		GetComponent<FadingInOut>().BeginFade(-1);
 
 		/*References*/
-		hackingGame = hackingCanvas.GetComponent<HackingGame> ();
+		hackingGame = hackingCanvas.GetComponent<HackingGame>();
 		controller = thePlayer.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
 
 		/*Resets*/
@@ -76,7 +85,23 @@ public class GameManager : MonoBehaviour {
 	public void DestroyPoster(){
 		PostersDestroyed++;
 		controller.CameraShake.shakeDuration = PosterCameraShake;
-		// Update UI to show
+		// Update UI to show progress
+		// Success Sound
+		PlaySFX(SmashSFX[Random.Range(0,SmashSFX.Length)]);
+		PlayResultSound(true);
+	}
+
+	/*****Sound Management******/
+
+	private void PlaySFX(AudioClip SFX){
+		SFX_Source.clip = SFX;
+		SFX_Source.Play();
+	}
+
+	private void PlayResultSound(bool success){
+		if (success == true){Result_Source.clip = SuccessSFX;}
+		else{Result_Source.clip = FailureSFX;}
+		Result_Source.Play();
 	}
 
 	/*****Utility******/
