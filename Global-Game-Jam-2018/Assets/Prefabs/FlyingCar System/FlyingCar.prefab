@@ -235,4 +235,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minspeed: -12
-  maxspeed: -21
+  maxspeed: -32
