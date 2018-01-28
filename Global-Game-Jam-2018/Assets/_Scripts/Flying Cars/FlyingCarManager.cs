@@ -24,7 +24,8 @@ public class FlyingCarManager : MonoBehaviour {
         {
             for (int i = 0; i < hazardCount; i++)
             {
-                Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+            	Vector3 spawnPosition = spawnValues;
+                // Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotation = transform.rotation;
                 Instantiate (hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds (spawnWait);
