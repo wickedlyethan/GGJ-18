@@ -18,8 +18,9 @@ public class GameManager : MonoBehaviour {
 	public HackingGame hackingGame;
 
 	[Header("Sound Effects")]
-	private AudioSource Music_Source;
+	// public AudioSource Music_Source;
 	public AudioSource SFX_Source;
+	public AudioSource Result_Source;
 	public AudioClip SuccessSFX;
 	public AudioClip FailureSFX;
 	public AudioClip[] SmashSFX;
@@ -84,14 +85,23 @@ public class GameManager : MonoBehaviour {
 	public void DestroyPoster(){
 		PostersDestroyed++;
 		controller.CameraShake.shakeDuration = PosterCameraShake;
-		// Update UI to show
+		// Update UI to show progress
+		// Success Sound
+		PlaySFX(SmashSFX[Random.Range(0,SmashSFX.Length)]);
+		PlayResultSound(true);
 	}
 
 	/*****Sound Management******/
 
-	private void LoadSFX(AudioClip SFX){
+	private void PlaySFX(AudioClip SFX){
 		SFX_Source.clip = SFX;
 		SFX_Source.Play();
+	}
+
+	private void PlayResultSound(bool success){
+		if (success == true){Result_Source.clip = SuccessSFX;}
+		else{Result_Source.clip = FailureSFX;}
+		Result_Source.Play();
 	}
 
 	/*****Utility******/
