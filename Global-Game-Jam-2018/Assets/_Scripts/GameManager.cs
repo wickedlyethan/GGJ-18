@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -144,6 +145,10 @@ public class GameManager : MonoBehaviour {
 			Cursor.lockState = CursorLockMode.Locked;
 			controller.enabled = true;
 		}
+	}
+
+	public void ReloadLevel(){
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	public void Quit(){
