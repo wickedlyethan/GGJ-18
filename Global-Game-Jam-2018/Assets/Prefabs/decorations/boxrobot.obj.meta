@@ -1,19 +1,12 @@
 fileFormatVersion: 2
-guid: f764b18b5c8724747893deac119cadef
-timeCreated: 1517075861
+guid: b71c7f11f74ed3d4db3a164e7000d400
+timeCreated: 1517125731
 licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Building_7
-    100002: //RootNode
-    400000: Building_7
-    400002: //RootNode
-    2100000: initialShadingGroup
-    2100002: lambert4SG
-    2300000: Building_7
-    3300000: Building_7
-    4300000: Building_7
+    100000: //RootNode
+    400000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
