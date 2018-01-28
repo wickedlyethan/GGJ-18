@@ -10,6 +10,7 @@ ModelImporter:
     400000: //RootNode
     400002: building_2
     2100000: initialShadingGroup
+    2100002: lambert6SG
     2300000: building_2
     3300000: building_2
     4300000: building_2
