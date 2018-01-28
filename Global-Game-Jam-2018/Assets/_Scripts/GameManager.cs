@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour {
  	public float PosterCameraShake = 0.5f;
  	public int PostersThatExist;
  	public int PostersDestroyed;
+ 	[Header("Respawn")]
+ 	public Vector3 RespawnLocation;
 
  	// Private
 	private bool isPaused = false;
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour {
 		controller = thePlayer.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
 
 		/*Resets*/
+		RespawnLocation = thePlayer.transform.position;
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
@@ -76,7 +79,8 @@ public class GameManager : MonoBehaviour {
 
 	/*****Game Functions******/
 
-	public void LaunchHack(){
+	public void LaunchHack(Vector3 lastTerminal){
+		RespawnLocation = new Vector3 (lastTerminal.x - 2, lastTerminal.y, lastTerminal.z);
 		hackingGame.Invoke ("CommenceHacking", 0f);
 		hackingCanvas.SetActive (true);
 		DisablePlayerController(true);
@@ -149,8 +153,9 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void ReloadLevel(){
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	public void Respawn(){
+		// SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		thePlayer.transform.position = RespawnLocation;
 	}
 
 	public void Quit(){

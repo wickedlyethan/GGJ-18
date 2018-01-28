@@ -5,9 +5,9 @@ public class DestroyByBoundary : MonoBehaviour
 {
     void OnTriggerExit(Collider other)
     {
-    	if(other.gameObject == GameManager.instance.thePlayer){
-    		GameManager.instance.ReloadLevel();
+    	if(other.gameObject.tag == "Player"){
+    		GameManager.instance.Respawn();
     	}
-        Destroy(other.gameObject);
+        else{Destroy(other.gameObject);}
     }
 }

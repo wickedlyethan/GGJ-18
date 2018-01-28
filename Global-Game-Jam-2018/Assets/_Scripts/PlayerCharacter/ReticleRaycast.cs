@@ -65,7 +65,7 @@ private void Click(string thisTag){
 	switch (thisTag){
 			case "Terminal":
 				AspectRatio.rectTransform.localScale = AspectRatioOff;
-				GameManager.instance.LaunchHack();
+				GameManager.instance.LaunchHack(currentObj.transform.position);
 				break;
 			case "Poster":
 				AspectRatio.rectTransform.localScale = AspectRatioOff;
