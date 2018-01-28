@@ -14,6 +14,7 @@ public class FlyingCarManager : MonoBehaviour {
     void Start ()
     {
         StartCoroutine (SpawnWaves ());
+        spawnValues = transform.position;
     }
 
     IEnumerator SpawnWaves ()
@@ -24,7 +25,7 @@ public class FlyingCarManager : MonoBehaviour {
             for (int i = 0; i < hazardCount; i++)
             {
                 Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
+                Quaternion spawnRotation = transform.rotation;
                 Instantiate (hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds (spawnWait);
             }
