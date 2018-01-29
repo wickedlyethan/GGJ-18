@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -12,22 +13,57 @@ public class GameManager : MonoBehaviour {
 	// The Player
 	public GameObject thePlayer;
 	private UnityStandardAssets.Characters.FirstPerson.FirstPersonController controller;
+	private ReticleRaycast ReticleRaycast;
 
+	[Header("Hacking Game")]
+	public GameObject hackingCanvas;
+	public HackingGame hackingGame;
+
+	[Header("Sound Effects")]
+	// public AudioSource Music_Source;
+	public AudioSource SFX_Source;
+	public AudioSource Result_Source;
+	public AudioClip SuccessSFX;
+	public AudioClip FailureSFX;
+	public AudioClip[] SmashSFX;
+
+	[Header("UI References")]
 	// Pause Canvas
 	public GameObject PauseCanvas;
 
- 	// Variables
-	private bool isPaused; 
+ 	[Header("Game Variables")]
+ 	// Public
+ 	[Header("Ad Hacking")]
+ 	public int hacksCompleted;
+ 	public GameObject[] AdsToHack;
+ 	public Material[] NewMaterials;
+ 	[Header("Poster Smashing")]
+ 	public float PosterCameraShake = 0.5f;
+ 	public int PostersThatExist;
+ 	public int PostersDestroyed;
+ 	[Header("Respawn")]
+ 	public Vector3 RespawnLocation;
+
+ 	// Private
+	private bool isPaused = false;
+	private bool canPause = true;
+
+	/*****Defaults******/
 
 	void Awake() {
 		if (instance == null){instance = this;}
 		else if (instance != this){Destroy(gameObject);}
 		DontDestroyOnLoad(gameObject);
 
+		GetComponent<FadingInOut>().BeginFade(-1);
+
 		/*References*/
+		hackingGame = hackingCanvas.GetComponent<HackingGame>();
 		controller = thePlayer.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
+		ReticleRaycast = thePlayer.GetComponentInChildren<ReticleRaycast> ();
 
 		/*Resets*/
+		RespawnLocation = thePlayer.transform.position;
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
@@ -43,13 +79,66 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	/*****Game Functions******/
+
+	public void LaunchHack(Vector3 lastTerminal){
+		RespawnLocation = new Vector3 (lastTerminal.x - 2, lastTerminal.y, lastTerminal.z);
+		hackingGame.Invoke ("CommenceHacking", 0f);
+		hackingCanvas.SetActive (true);
+		DisablePlayerController(true);
+		canPause = false;
+		ReticleRaycast.enabled = false;
+	}
+	public void StopHacking(bool didWin) {
+		hackingCanvas.SetActive (false);
+		DisablePlayerController (false);
+		if (didWin == true){
+			PlayResultSound(true);
+			// TODO: Change Billboard Texture
+			AdsToHack[hacksCompleted].GetComponent<MeshRenderer>().material = NewMaterials[hacksCompleted];
+			hacksCompleted++;
+			if (hacksCompleted == AdsToHack.Length){
+				Quit();
+			}
+		}
+		else if (didWin == false){PlayResultSound(false);}
+		canPause = true;
+		ReticleRaycast.enabled = true;
+	}
+
+	public void DestroyPoster(){
+		PostersDestroyed++;
+		controller.CameraShake.shakeDuration = PosterCameraShake;
+		// Update UI to show progress
+		// Success Sound
+		PlaySFX(SmashSFX[Random.Range(0,SmashSFX.Length)]);
+		PlayResultSound(true);
+	}
+
+	/*****Sound Management******/
+
+	private void PlaySFX(AudioClip SFX){
+		SFX_Source.clip = SFX;
+		SFX_Source.Play();
+	}
+
+	private void PlayResultSound(bool success){
+		if (success == true){Result_Source.clip = SuccessSFX;}
+		else{Result_Source.clip = FailureSFX;}
+		Result_Source.Play();
+	}
+
+	/*****Utility******/
+
 	void pause(){
-		PauseCanvas.SetActive(true);
-		DisablePlayerController (true);
-		isPaused = true;
-		Time.timeScale = 0.5f;
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.None;
+		if(canPause == true){
+			PauseCanvas.SetActive(true);
+			DisablePlayerController (true);
+			isPaused = true;
+			Time.timeScale = 0.5f;
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+		}
 	}
 	void unPause(){
 		PauseCanvas.SetActive(false);
@@ -58,10 +147,10 @@ public class GameManager : MonoBehaviour {
 		Time.timeScale = 1.0f;
 	}
 
-	public void DisablePlayerController(bool status){
+	public void DisablePlayerController (bool status){
 		if (status == true){
-			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.None;
+			//Cursor.visible = true;
+			//Cursor.lockState = CursorLockMode.None;
 			controller.enabled = false;
 		}
 		if (status == false){
@@ -69,5 +158,15 @@ public class GameManager : MonoBehaviour {
 			Cursor.lockState = CursorLockMode.Locked;
 			controller.enabled = true;
 		}
+	}
+
+	public void Respawn(){
+		// SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		thePlayer.transform.position = RespawnLocation;
+	}
+
+	public void Quit(){
+		Debug.Log("Quitting");
+		Application.Quit();
 	}
 }
