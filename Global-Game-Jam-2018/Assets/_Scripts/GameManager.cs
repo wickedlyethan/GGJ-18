@@ -42,7 +42,9 @@ public class GameManager : MonoBehaviour {
  	public int PostersThatExist;
  	public int PostersDestroyed;
  	[Header("Respawn")]
- 	public Vector3 RespawnLocation;
+ 	private Vector3 RespawnLocation;
+	private Quaternion RespawnRotation; 
+	public GameObject[] RespawnLocations;
 
  	// Private
 	private bool isPaused = false;
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour {
 	void Awake() {
 		if (instance == null){instance = this;}
 		else if (instance != this){Destroy(gameObject);}
-		DontDestroyOnLoad(gameObject);
+		// DontDestroyOnLoad(gameObject);
 
 		GetComponent<FadingInOut>().BeginFade(-1);
 
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour {
 		ReticleRaycast = thePlayer.GetComponentInChildren<ReticleRaycast> ();
 
 		/*Resets*/
-		RespawnLocation = thePlayer.transform.position;
+		TODO: RespawnLocation = thePlayer.transform.position;
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
@@ -82,9 +84,13 @@ public class GameManager : MonoBehaviour {
 	/*****Game Functions******/
 
 	public void LaunchHack(Vector3 lastTerminal){
-		RespawnLocation = new Vector3 (lastTerminal.x - 2, lastTerminal.y, lastTerminal.z);
+		// Set Respawn
+		RespawnLocation = RespawnLocations[hacksCompleted].transform.position;
+		RespawnRotation = RespawnLocations[hacksCompleted].transform.rotation;
+		// Start Hacking Game
 		hackingGame.Invoke ("CommenceHacking", 0f);
 		hackingCanvas.SetActive (true);
+		// Disable Player Controls, lock in hack screen
 		DisablePlayerController(true);
 		canPause = false;
 		ReticleRaycast.enabled = false;
@@ -94,7 +100,6 @@ public class GameManager : MonoBehaviour {
 		DisablePlayerController (false);
 		if (didWin == true){
 			PlayResultSound(true);
-			// TODO: Change Billboard Texture
 			AdsToHack[hacksCompleted].GetComponent<MeshRenderer>().material = NewMaterials[hacksCompleted];
 			hacksCompleted++;
 			if (hacksCompleted == AdsToHack.Length){
@@ -140,7 +145,7 @@ public class GameManager : MonoBehaviour {
 			Cursor.lockState = CursorLockMode.None;
 		}
 	}
-	void unPause(){
+	public void unPause(){
 		PauseCanvas.SetActive(false);
 		DisablePlayerController (false);
 		isPaused = false;
@@ -163,6 +168,12 @@ public class GameManager : MonoBehaviour {
 	public void Respawn(){
 		// SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		thePlayer.transform.position = RespawnLocation;
+		thePlayer.transform.rotation = RespawnRotation;
+	}
+
+	public void Restart(){
+		Debug.Log("Restarting");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	public void Quit(){

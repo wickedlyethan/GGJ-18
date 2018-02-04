@@ -440,7 +440,11 @@ MonoBehaviour:
   PosterCameraShake: 0.5
   PostersThatExist: 0
   PostersDestroyed: 0
-  RespawnLocation: {x: 0, y: 0, z: 0}
+  RespawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114588282478598080
 MonoBehaviour:
   m_ObjectHideFlags: 1
