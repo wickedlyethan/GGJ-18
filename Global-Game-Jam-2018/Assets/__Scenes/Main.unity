@@ -11476,7 +11476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &342236244
 AudioListener:
   m_ObjectHideFlags: 0
@@ -14026,7 +14026,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114145001592347198, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -62104,6 +62104,11 @@ Prefab:
       propertyPath: RespawnLocations.Array.data[3]
       value: 
       objectReference: {fileID: 1359541134}
+    - target: {fileID: 114438195825276300, guid: a1325d02ef64a7a42874ce148be79bc0,
+        type: 2}
+      propertyPath: hacksCompleted
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1325d02ef64a7a42874ce148be79bc0, type: 2}
   m_IsPrefabParent: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   eventID: 1
   PlayerCommands:
   - delete tyranny.jpg
-  - call function {names};
+  - no-ethical-consumption.bat
   - codecodecode

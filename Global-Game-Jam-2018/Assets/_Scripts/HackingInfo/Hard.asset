@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: 3
   PlayerCommands:
-  - mirror_shaders;
-  - engender_binary;
+  - mirror_shades.awesome;
+  - submit one_liner;
   - enlarge_cyberdeck;
   - reload {matrix};
-  - type bad_pun;
+  - planet.hack.it

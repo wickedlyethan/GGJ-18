@@ -101,7 +101,6 @@ public class GameManager : MonoBehaviour {
 		DisablePlayerController (false);
 		if (didWin == true){
 			AdsToHack[hacksCompleted].GetComponent<MeshRenderer>().material = NewMaterials[hacksCompleted];
-			hacksCompleted++;
 			if (hacksCompleted == AdsToHack.Length){
 				Quit();
 			}
