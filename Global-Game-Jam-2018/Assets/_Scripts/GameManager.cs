@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour {
 		ReticleRaycast = thePlayer.GetComponentInChildren<ReticleRaycast> ();
 
 		/*Resets*/
-		TODO: RespawnLocation = thePlayer.transform.position;
+		RespawnLocation = thePlayer.transform.position;
+		RespawnRotation = thePlayer.transform.rotation;
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
@@ -99,14 +100,13 @@ public class GameManager : MonoBehaviour {
 		hackingCanvas.SetActive (false);
 		DisablePlayerController (false);
 		if (didWin == true){
-			PlayResultSound(true);
 			AdsToHack[hacksCompleted].GetComponent<MeshRenderer>().material = NewMaterials[hacksCompleted];
 			hacksCompleted++;
 			if (hacksCompleted == AdsToHack.Length){
 				Quit();
 			}
 		}
-		else if (didWin == false){PlayResultSound(false);}
+		// else if (didWin == false){PlayResultSound(false);}
 		canPause = true;
 		ReticleRaycast.enabled = true;
 	}
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour {
 		SFX_Source.Play();
 	}
 
-	private void PlayResultSound(bool success){
+	public void PlayResultSound(bool success){
 		if (success == true){Result_Source.clip = SuccessSFX;}
 		else{Result_Source.clip = FailureSFX;}
 		Result_Source.Play();

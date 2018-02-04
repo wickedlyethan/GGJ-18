@@ -36,6 +36,7 @@ public class HackingGame : MonoBehaviour {
 		}
 		if (successCount == (hackingInfo [hackingID].PlayerCommands.Length)) {
 			Debug.Log ("Hacking Complete");
+			GameManager.instance.PlayResultSound(true);
 			consoleText.text += ("\n" + "------------------" + "\n" + "HACKING COMPLETE" + "\n" + "------------------" + "\n");
 			hackingID++;
 			StartCoroutine ("ExitDelay", 0f);
@@ -43,6 +44,7 @@ public class HackingGame : MonoBehaviour {
 		}
 		if (chancesLeft == 0) {
 			Debug.Log ("Hacking Failed");
+			GameManager.instance.PlayResultSound(false);
 			consoleText.text += ("\n" + "------------------" + "\n" + "HACKING FAILED" + "\n" + "------------------" + "\n");
 			GameManager.instance.StopHacking(false);
 		}
