@@ -100,10 +100,7 @@ public class GameManager : MonoBehaviour {
 		hackingCanvas.SetActive (false);
 		DisablePlayerController (false);
 		if (didWin == true){
-			AdsToHack[hacksCompleted].GetComponent<MeshRenderer>().material = NewMaterials[hacksCompleted];
-			if (hacksCompleted == AdsToHack.Length){
-				Quit();
-			}
+			AdsToHack[hacksCompleted - 1].GetComponent<MeshRenderer>().material = NewMaterials[hacksCompleted - 1];
 		}
 		// else if (didWin == false){PlayResultSound(false);}
 		canPause = true;

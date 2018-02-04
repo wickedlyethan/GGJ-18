@@ -71,7 +71,8 @@ public class HackingGame : MonoBehaviour {
 	private void Hack () {
 		inputLine = consoleInput.text;
 		if (inputLine == tempLine) {
-			Debug.Log ("Comparison Success");
+			GameManager.instance.PlayResultSound(true);
+			// Debug.Log ("Comparison Success");
 			consoleText.text += ("" + "\n" + inputLine + "\n" + "COMMAND SUCCESSFUL" + "\n");
 			consoleInput.text = "";
 			successCount++;
@@ -82,6 +83,7 @@ public class HackingGame : MonoBehaviour {
 				tempLine = hackingInfo [hackingID].PlayerCommands [successCount];
 			}
 		} else if (inputLine != tempLine) {
+			GameManager.instance.PlayResultSound(false);
 			consoleText.text += ("" + "\n" + inputLine + "\n" + "COMMAND NOT SUCCESSFUL" + "\n");
 			consoleInput.text = "";
 			chancesLeft--;
@@ -92,15 +94,14 @@ public class HackingGame : MonoBehaviour {
 
 	private void HackSuccess(){
 		// Debug.Log ("Hacking Complete");
-		GameManager.instance.PlayResultSound(true);
 		consoleText.text += ("\n" + "------------------" + "\n" + "HACKING COMPLETE" + "\n" + "------------------" + "\n");
 		hackingID++;
 		GameManager.instance.hacksCompleted++;
 		if (GameManager.instance.hacksCompleted == GameManager.instance.AdsToHack.Length){DisplayWin();}
-		else{currentdelay = StartCoroutine (ExitDelay(0f));}
+		else{currentdelay = StartCoroutine (ExitDelay());}
 	}
-	private IEnumerator ExitDelay (float delay) {
-		yield return new WaitForSeconds (1.5f);
+	private IEnumerator ExitDelay () {
+		yield return new WaitForSeconds (delay);
 		GameManager.instance.StopHacking(true);
 	}
 	private void HackFail(){
@@ -111,7 +112,9 @@ public class HackingGame : MonoBehaviour {
 	}
 	public void DisplayWin(){
 		consoleText.text += ("\n" + "---------------" + "\n" + "MISSION COMPLETE!!" + "\n" + "---------------" + "\n");
-		consoleText.text += ("\n" + "Press ESC to Leave the Terminal." + "\n" + "Press ESC again to leave the world.");
+		consoleText.text += ("\n" + "You'll now leave the Terminal." + "\n" + "Press ESC again to leave the world.");
 		consoleText.text += ("\n" + "But feel free to stay, you've made it a lot prettier ;D");
+		delay = 5.0f;
+		StartCoroutine(ExitDelay());
 	}
 }

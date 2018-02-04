@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventID: 2
   PlayerCommands:
-  - reinstate democracy.png
-  - resolve_all warringtrojans;
-  - 'build: gates_and_windows;'
-  - run blade.exe;
+  - translate 1337
+  - the_man = null;
+  - ignore_all {compiler_Error};
+  - reset democracy.app
