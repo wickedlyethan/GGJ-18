@@ -2,6 +2,8 @@
 
 _JetHack_ is a first-person platformer about jetpacking around a cyberpunk city, hacking into and breaking mega-corporate advertisements. It was made for [Global Game Jam 2018](https://globalgamejam.org/) with the theme of "Transmission".
 
+It's available now on Itch.io! [wickedly.itch.io/jethack](https://wickedly.itch.io/jethack)
+
 ## Controls
 
 W, A, S, D - Move
